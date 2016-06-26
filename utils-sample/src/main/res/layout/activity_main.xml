@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.pierfrancescosoffritti.utils_sample.MainActivity">
+
+    <TextView
+        android:id="@+id/fadeInFadeOut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_blue_bright"
+        android:padding="32dp"
+        android:text="FadeInFadeOut" />
+
+    <TextView
+        android:id="@+id/fadeIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_green_light"
+        android:padding="32dp"
+        android:text="FadeIn" />
+
+    <TextView
+        android:id="@+id/fadeOut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_orange_light"
+        android:padding="32dp"
+        android:text="FadeOut" />
+
+    <TextView
+        android:id="@+id/revealAndFadeOut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_blue_bright"
+        android:padding="32dp"
+        android:text="revealAndFadeOut" />
+
+    <TextView
+        android:id="@+id/reveal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_green_light"
+        android:padding="32dp"
+        android:text="reveal" />
+
+    <TextView
+        android:id="@+id/unreveal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_orange_light"
+        android:padding="32dp"
+        android:text="unreveal" />
+
+</LinearLayout>
