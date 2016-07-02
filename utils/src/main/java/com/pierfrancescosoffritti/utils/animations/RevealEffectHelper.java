@@ -140,7 +140,7 @@ public class RevealEffectHelper {
     }
 
     private static void unRevealEffect(
-            @NonNull View target,
+            @NonNull final View target,
             int centerX, int centerY,
             int duration,
             int finalRadius,
@@ -158,6 +158,8 @@ public class RevealEffectHelper {
                 @Override
                 public void onAnimationEnd(Animator animation) {
                     if (listener != null) listener.onAnimationEnd(null);
+
+                    target.setVisibility(View.INVISIBLE);
                 }
 
                 @Override
@@ -169,7 +171,7 @@ public class RevealEffectHelper {
                 public void onAnimationCancel(Animator animation) {}
             });
 
-            target.setVisibility(View.INVISIBLE);
+            //target.setVisibility(View.INVISIBLE);
             revealAnimator.start();
         }
     }
