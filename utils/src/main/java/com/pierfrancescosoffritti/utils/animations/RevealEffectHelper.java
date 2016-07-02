@@ -66,14 +66,14 @@ public class RevealEffectHelper {
             @Nullable View target,
             int centerX, int centerY,
             int duration,
-            int finalRadius,
+            int currentRadius,
             @Nullable Animation.AnimationListener listener) {
 
         if(target == null)
             return;
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            unRevealEffect(target, centerX, centerY, duration, finalRadius, listener);
+            unRevealEffect(target, centerX, centerY, duration, currentRadius, listener);
         } else
             AnimationsUtils.fadeOut(target, duration, 0, listener);
     }
@@ -143,11 +143,11 @@ public class RevealEffectHelper {
             @NonNull final View target,
             int centerX, int centerY,
             int duration,
-            int finalRadius,
+            int currentRadius,
             @Nullable final Animation.AnimationListener listener) {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            Animator revealAnimator = ViewAnimationUtils.createCircularReveal(target, centerX, centerY, finalRadius, 0);
+            Animator revealAnimator = ViewAnimationUtils.createCircularReveal(target, centerX, centerY, currentRadius, 0);
             revealAnimator.setDuration(duration);
             revealAnimator.addListener(new Animator.AnimatorListener() {
                 @Override
@@ -157,9 +157,9 @@ public class RevealEffectHelper {
 
                 @Override
                 public void onAnimationEnd(Animator animation) {
-                    if (listener != null) listener.onAnimationEnd(null);
-
                     target.setVisibility(View.INVISIBLE);
+
+                    if (listener != null) listener.onAnimationEnd(null);
                 }
 
                 @Override
@@ -171,7 +171,6 @@ public class RevealEffectHelper {
                 public void onAnimationCancel(Animator animation) {}
             });
 
-            //target.setVisibility(View.INVISIBLE);
             revealAnimator.start();
         }
     }

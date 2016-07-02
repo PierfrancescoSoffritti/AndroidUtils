@@ -3,6 +3,7 @@ package com.pierfrancescosoffritti.utils_sample;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.animation.Animation;
 
 import com.pierfrancescosoffritti.utils.animations.AnimationsUtils;
 import com.pierfrancescosoffritti.utils.animations.RevealEffectHelper;
@@ -56,8 +57,25 @@ public class MainActivity extends AppCompatActivity {
 
         findViewById(R.id.unreveal).setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                RevealEffectHelper.supportUnReveal(view, 0, 0, 500, Math.max(view.getHeight(), view.getWidth()), null);
+            public void onClick(final View view) {
+                RevealEffectHelper.supportUnReveal(view, 0, 0, 500, Math.max(view.getHeight(), view.getWidth()), new Animation.AnimationListener() {
+                    @Override
+                    public void onAnimationStart(Animation animation) {
+                        if(view.getVisibility() != View.VISIBLE)
+                            throw new IllegalStateException("view.getVisibility() != View.VISIBLE");
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animation animation) {
+                            if(view.getVisibility() != View.INVISIBLE)
+                                throw new IllegalStateException("view.getVisibility()) != View.INVISIBLE");
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animation animation) {
+
+                    }
+                });
             }
         });
     }
