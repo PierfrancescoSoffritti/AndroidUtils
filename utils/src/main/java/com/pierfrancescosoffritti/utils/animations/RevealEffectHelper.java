@@ -169,7 +169,7 @@ public class RevealEffectHelper {
                 public void onAnimationCancel(Animator animation) {}
             });
 
-            target.setVisibility(View.VISIBLE);
+            target.setVisibility(View.INVISIBLE);
             revealAnimator.start();
         }
     }
