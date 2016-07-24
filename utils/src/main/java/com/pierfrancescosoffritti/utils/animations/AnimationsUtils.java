@@ -2,6 +2,7 @@ package com.pierfrancescosoffritti.utils.animations;
 
 import android.support.annotation.Nullable;
 import android.view.View;
+import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
@@ -59,7 +60,7 @@ public class AnimationsUtils {
         AnimationSet animationSet = new AnimationSet(true);
         animationSet.addAnimation(fadeIn(target, fadeInDuration, fadeInOffset, fadeInListener));
         animationSet.addAnimation(fadeOut(target, fadeOutDuration, fadeInDuration + fadeInOffset + fadeOutOffset, fadeOutListener));
-
+        animationSet.setInterpolator(new AccelerateDecelerateInterpolator());
         target.startAnimation(animationSet);
     }
 
@@ -69,6 +70,7 @@ public class AnimationsUtils {
 
         AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f, 0.0f);
         alphaAnimation.setDuration(duration);
+        alphaAnimation.setInterpolator(new AccelerateDecelerateInterpolator());
         alphaAnimation.setStartOffset(startOffset);
         alphaAnimation.setAnimationListener(new Animation.AnimationListener() {
             @Override
@@ -99,6 +101,7 @@ public class AnimationsUtils {
 
         AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
         alphaAnimation.setDuration(duration);
+        alphaAnimation.setInterpolator(new AccelerateDecelerateInterpolator());
         alphaAnimation.setStartOffset(startOffset);
         alphaAnimation.setAnimationListener(new Animation.AnimationListener() {
             @Override
