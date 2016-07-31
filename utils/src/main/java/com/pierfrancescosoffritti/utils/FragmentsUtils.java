@@ -118,4 +118,11 @@ public class FragmentsUtils {
                 .remove(fragment)
                 .commit();
     }
+
+    public static void removeFragment(@NonNull FragmentManager supportFragmentManager, @NonNull String TAG) {
+        supportFragmentManager
+                .beginTransaction()
+                .remove(supportFragmentManager.findFragmentByTag(TAG))
+                .commit();
+    }
 }
